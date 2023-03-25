@@ -1,0 +1,10 @@
+// Admin Credentials
+Email : admin@gmail.com
+Password : 12312352
+
+// Moderator
+Email : moderator@gmail.com
+Password : 12312352
+
+
+Note: Please run , php artisan storage:link command to store / update images
