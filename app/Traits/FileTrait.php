@@ -51,12 +51,11 @@ trait FileTrait
     {
         Log::info("Unlink Path : ".$pathWithFileName);
 
-        if (Storage::disk("public")->exists($pathWithFileName)){
-            Storage::disk("public")->delete($pathWithFileName);
+        if(!empty($pathWithFileName)){
+            $processingFile = str_replace("storage/","",$pathWithFileName);
+            if(Storage::disk("public")->exists($processingFile)){
+                Storage::disk("public")->delete($processingFile);
+            }
         }
-
-//        if (file_exists($pathWithFileName)){
-//            @unlink($pathWithFileName);
-//        }
     }
 }

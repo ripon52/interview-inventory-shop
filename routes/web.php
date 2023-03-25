@@ -16,32 +16,16 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Models\User;
 
 Route::get('/', function () {
-
-
-//    User::query()->create([
-//        "name" => "Admin",
-//        "role" => "admin",
-//        "email" => "admin@gmail.com",
-//        "email_verified_at" => now(),
-//        "password" => bcrypt(12312352)
-//    ]);
-//
-//    User::query()->create([
-//        "name" => "Moderator",
-//        "role" => "moderator",
-//        "email" => "moderator@gmail.com",
-//        "email_verified_at" => now(),
-//        "password" => bcrypt(12312352)
-//    ]);
-
-    return view('welcome');
+    return view('website.index');
 });
 
 Auth::routes();
 
+Route::middleware(['web','auth'])->group(function (){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::middleware("activity.power")->prefix("admin")->group(function (){
+        Route::resource("products",ProductController::class);
+    });
 
-Route::middleware("activity.power")->prefix("admin")->group(function (){
-    Route::resource("products",ProductController::class);
 });

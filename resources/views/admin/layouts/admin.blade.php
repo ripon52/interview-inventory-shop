@@ -137,8 +137,6 @@
 ***********************************-->
 <!-- Required vendors -->
 <script src="{{ asset('backend') }}/vendor/global/global.min.js"></script>
-{{--<script src="{{ asset('backend') }}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>--}}
-{{--<script src="{{ asset('backend') }}/vendor/chart.js/Chart.bundle.min.js"></script>--}}
 <script src="{{ asset('backend') }}/js/custom.min.js"></script>
 <script src="{{ asset('backend') }}/js/deznav-init.js"></script>
 <script src="{{ asset('backend') }}/js/notify.min.js" type="text/javascript"></script>

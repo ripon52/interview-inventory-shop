@@ -30,7 +30,6 @@ class ProductController extends Controller
     {
         $data['products'] = $this->products;
 
-
         return view("admin.products.index")->with($data);
     }
 
@@ -113,6 +112,9 @@ class ProductController extends Controller
                 $product = $this->productService->updateProduct($id,$request->except("image"));
 
                 if($request->hasFile("image")){
+                    // OLD Image Unlink
+                    $this->unlinkFile($product->original_image);
+                    $this->unlinkFile($product->thumbnail);
 
                     $data["original_image"] = self::FileProcessing(
                         $request->file("image"),

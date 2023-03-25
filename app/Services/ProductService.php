@@ -12,10 +12,13 @@ class ProductService
     public const THUMBNAIL              = self::DEFAULT_FILE_PATH.'/thumbnail';
     public const PRODUCT_ORIGINAL_IMAGE = self::DEFAULT_FILE_PATH."/products";
 
-    public function getAll()
+    public function getAll($status=null)
     {
+        $query = Product::query()->latest();
 
-        return Product::query()->latest()->get();
+        (empty($status) ? $query->cursor() : $query->where("status","=",$status));
+
+        return $query->cursor();
     }
 
     public function findById($id)
