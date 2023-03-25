@@ -11,7 +11,7 @@
                 <ul class="navbar-nav header-right">
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                            <img src="{{ asset('adminFiles') }}/images/profile/17.jpg" width="20" alt=""/>
+                            <img src="{{ asset('backend') }}/images/profile/17.jpg" width="20" alt=""/>
                             <div class="header-info">
                                 <span class="text-black"><strong>{{ loggedUserName() }}</strong></span>
                                 <p class="fs-12 mb-0">{{ userType() }}</p>
